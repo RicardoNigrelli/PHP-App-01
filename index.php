@@ -8,7 +8,7 @@ $ch = curl_init(API_URL);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 // Configuramos la ruta al archivo de certificados CA
-curl_setopt($ch, CURLOPT_CAINFO, "D:/Proyectos/cacert.pem");
+// curl_setopt($ch, CURLOPT_CAINFO, "D:/Proyectos/cacert.pem");
 
 $result = curl_exec($ch);
 
