@@ -20,11 +20,31 @@ class SuperHero {
         return "$this->name es un superhéroe que viene de $this->planet 
         y tiene los siguientes poderes: $powers";
     }
+
+    public static function random () {
+        $names = ["Thor", "Spiderman", "wolverine", "Ironman"];
+        $powers = [
+        ["Superfuerza", "Volar"], 
+        ["Volar", "Agilidad"],
+        ["Agilidad", "Cambio de tamaño"],
+        ["Cambio de tamaño", "Superfuerza"] ];
+        $planets = ["Asgard", "Tierra", "Krypton"];
+
+        $name = $names[array_rand($names)];
+        $power = $powers[array_rand($powers)];
+        $planet = $planets[array_rand($planets)];
+
+        // echo "El Superhéroe elegido es $name, que vienene de $planet y tiene los siguientes poderes: " . implode(",", $power);
+
+        return new self($name, $power, $planet);
+    }
 }
 
-$hero = new SuperHero("Superman", ["Superfuerza", "super calzones rojos", "rayos laser"], "Krypton");
+//instanciar
+// $hero = new SuperHero("Superman", ["Superfuerza", "super calzones rojos", "rayos laser"], "Krypton");
+// echo $hero->description(); //Método publico
 
-echo $hero->description()
-
-
+//Método estático
+$hero = SuperHero::random();
+echo $hero->description();
 ?>
